@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Quiz Game</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="title">Quiz Game</h1>
+      <p class="subtitle">Timer • Random questions • Sound • Review • Animated UI</p>
+    </header>
+
+    <main class="card" id="main-card">
+      <!-- Home / Controls -->
+      <section id="start-screen" class="screen">
+        <div class="controls">
+          <label>
+            Number of questions:
+            <select id="numQ">
+              <option value="5">5</option>
+              <option value="8" selected>8</option>
+              <option value="10">10</option>
+            </select>
+          </label>
+
+          <label>
+            Time per question:
+            <select id="timePerQ">
+              <option value="8">8s</option>
+              <option value="12" selected>12s</option>
+              <option value="20">20s</option>
+            </select>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" id="animateToggle" checked />
+            <span>Animations</span>
+          </label>
+
+          <button id="startBtn" class="btn primary">Start Quiz</button>
+        </div>
+      </section>
+
+      <!-- Quiz Screen -->
+      <section id="quiz-screen" class="screen hidden">
+        <div class="top-row">
+          <div class="left">
+            <div id="qCount" class="muted">Question 1 / 1</div>
+            <div id="questionText" class="question animate-fade"></div>
+          </div>
+          <div class="right">
+            <div id="timerBar" class="timer-bar">
+              <div id="timerFill" class="timer-fill"></div>
+            </div>
+            <div id="timeLabel" class="time-label">Time: 12s</div>
+          </div>
+        </div>
+
+        <div id="options" class="options animate-fade"></div>
+
+        <div class="bottom-row">
+          <div class="progress-wrap">
+            <div class="progress" id="progress">
+              <div id="progressFill" class="progress-fill"></div>
+            </div>
+            <div class="muted small" id="progressText">Progress 0%</div>
+          </div>
+
+          <div class="actions">
+            <button id="skipBtn" class="btn">Skip</button>
+            <button id="nextBtn" class="btn primary" disabled>Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Result Screen -->
+      <section id="result-screen" class="screen hidden">
+        <h2>Quiz Completed 🎉</h2>
+        <div class="result-grid">
+          <div class="result-card">
+            <div class="big" id="finalScore">0 / 0</div>
+            <div class="muted">Score</div>
+          </div>
+          <div class="result-card">
+            <div class="big" id="finalPercent">0%</div>
+            <div class="muted">Accuracy</div>
+          </div>
+          <div class="result-card">
+            <div class="big" id="totalCorrect">0</div>
+            <div class="muted">Correct</div>
+          </div>
+          <div class="result-card">
+            <div class="big" id="totalWrong">0</div>
+            <div class="muted">Wrong</div>
+          </div>
+          <div class="result-card">
+            <div class="big" id="totalTime">0s</div>
+            <div class="muted">Total Time</div>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button id="reviewBtn" class="btn">Review Answers</button>
+          <button id="playAgainBtn" class="btn primary">Play Again</button>
+        </div>
+      </section>
+
+      <!-- Review Screen -->
+      <section id="review-screen" class="screen hidden">
+        <h2>Review Answers</h2>
+        <div id="reviewList" class="review-list"></div>
+
+        <div class="result-actions">
+          <button id="backHomeBtn" class="btn">Back Home</button>
+          <button id="playAgainBtn2" class="btn primary">Play Again</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer muted">Built with JavaScript • No libraries</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
